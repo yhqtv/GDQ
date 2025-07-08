@@ -316,5 +316,39 @@
       });
     });
   </script>
+  <script>
+  const music = document.getElementById("bg-music");
+  const toggle = document.getElementById("music-toggle");
+  let isMuted = true;
+
+  // 初始静音 + 自动播放尝试
+  window.addEventListener("DOMContentLoaded", () => {
+    music.muted = true;
+    music.play().catch(() => {});
+  });
+
+  // 用户第一次交互后，取消静音继续播放
+  function enableMusic() {
+    if (isMuted) {
+      music.muted = false;
+      music.play().catch(() => {});
+      toggle.innerHTML = '<i class="fas fa-volume-up"></i>';
+      isMuted = false;
+      document.removeEventListener("click", enableMusic);
+    }
+  }
+  document.addEventListener("click", enableMusic);
+
+  // 手动切换按钮控制
+  toggle.addEventListener("click", (e) => {
+    e.stopPropagation(); // 避免触发 enableMusic
+    isMuted = !isMuted;
+    music.muted = isMuted;
+    toggle.innerHTML = isMuted
+      ? '<i class="fas fa-music"></i>'
+      : '<i class="fas fa-volume-up"></i>';
+    music.play().catch(() => {});
+  });
+</script>
 </body>
 </html>
