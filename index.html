@@ -1,257 +1,320 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-    <meta charset="UTF-8">
-    <title>亿万外汇 | 科技金融平台</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="robots" content="noindex">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.0/tsparticles.min.js"></script>
-    <style>
-        :root {
-            --primary: #0ff;
-            --secondary: #ff00f7;
-            --dark: #0c1021;
-            --card-bg: rgba(25, 30, 50, 0.7);
-        }
+  <meta charset="UTF-8">
+  <title>亿万外汇 | 科技金融平台</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="robots" content="noindex">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.0/tsparticles.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    :root {
+      --primary: #0ff;
+      --secondary: #ff00f7;
+      --dark: #0c1021;
+      --card-bg: rgba(25, 30, 50, 0.7);
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: #0c1021;
-            color: #e0f7ff;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--dark);
+      color: #e0f7ff;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
 
-        #tsparticles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-        }
+    #tsparticles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+    }
 
-        #page {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+    #page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
 
-        #header {
-            text-align: center;
-            padding: 50px 0 30px;
-        }
+    #header {
+      text-align: center;
+      padding: 50px 0 30px;
+    }
 
-        #header h2 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 3rem;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            background: linear-gradient(90deg, #8ae6ff, #0ff, #ff00f7);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
-        }
+    #header h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, #8ae6ff, #0ff, #ff00f7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+    }
 
-        .tagline {
-            font-size: 1.2rem;
-            color: #a0c7ff;
-            margin-top: 10px;
-        }
+    .tagline {
+      font-size: 1.2rem;
+      color: #a0c7ff;
+      margin-top: 10px;
+    }
 
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
 
-        .card {
-            background: var(--card-bg);
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid rgba(100, 200, 255, 0.1);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-            position: relative;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-        }
+    .card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(100, 200, 255, 0.1);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      position: relative;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
 
-        .card::before {
-            content: "";
-            position: absolute;
-            top: -2px; left: -2px; right: -2px; bottom: -2px;
-            background: linear-gradient(60deg, #00f7ff, #ff00f7, #6a11cb);
-            border-radius: 18px;
-            opacity: 0.4;
-            z-index: -1;
-            animation: rotateBorder 6s linear infinite;
-        }
+    .card::before {
+      content: "";
+      position: absolute;
+      top: -2px; left: -2px; right: -2px; bottom: -2px;
+      background: linear-gradient(60deg, #00f7ff, #ff00f7, #6a11cb);
+      border-radius: 18px;
+      opacity: 0.4;
+      z-index: -1;
+      animation: rotateBorder 6s linear infinite;
+    }
 
-        @keyframes rotateBorder {
-            0% { filter: hue-rotate(0deg); }
-            100% { filter: hue-rotate(360deg); }
-        }
+    @keyframes rotateBorder {
+      0% { filter: hue-rotate(0deg); }
+      100% { filter: hue-rotate(360deg); }
+    }
 
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 255, 255, 0.3);
-        }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 255, 255, 0.3);
+    }
 
-        .card-content {
-            padding: 25px;
-            text-align: center;
-        }
+    .card-content {
+      padding: 25px;
+      text-align: center;
+    }
 
-        .card-icon {
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 20px;
-            border-radius: 50%;
-            background: linear-gradient(145deg, #1a2a6c, #2575fc);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 5px 15px rgba(0, 150, 255, 0.3);
-        }
+    .card-icon {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #1a2a6c, #2575fc);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 5px 15px rgba(0, 150, 255, 0.3);
+    }
 
-        .card-icon img {
-            width: 70%;
-            filter: drop-shadow(0 0 6px rgba(0, 255, 255, 0.7));
-        }
+    .card-icon img {
+      width: 70%;
+      filter: drop-shadow(0 0 6px rgba(0, 255, 255, 0.7));
+    }
 
-        .card-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: linear-gradient(90deg, #8ae6ff, #0ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin: 10px 0;
-        }
+    .card-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, #8ae6ff, #0ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin: 10px 0;
+    }
 
-        .card-desc {
-            font-size: 0.95rem;
-            color: #b0d4ff;
-            line-height: 1.6;
-            min-height: 60px;
-        }
+    .card-desc {
+      font-size: 0.95rem;
+      color: #b0d4ff;
+      line-height: 1.6;
+      min-height: 60px;
+    }
 
-        .cta-btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background: #111;
-            color: #0ff;
-            border-radius: 30px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            text-decoration: none;
-            border: 1px solid #0ff;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
+    .cta-btn {
+      display: inline-block;
+      padding: 12px 30px;
+      background: #111;
+      color: #0ff;
+      border-radius: 30px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid #0ff;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
 
-        .cta-btn::after {
-            content: "";
-            position: absolute;
-            top: -50%; left: -50%;
-            width: 200%; height: 200%;
-            background: radial-gradient(circle, rgba(0,255,255,0.4) 0%, transparent 70%);
-            animation: shine 4s infinite linear;
-        }
+    .cta-btn::after {
+      content: "";
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(circle, rgba(0,255,255,0.4) 0%, transparent 70%);
+      animation: shine 4s infinite linear;
+    }
 
-        @keyframes shine {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50%, 50%); }
-        }
+    @keyframes shine {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(50%, 50%); }
+    }
 
-        .cta-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 20px rgba(0, 255, 255, 0.5);
-        }
+    .cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 20px rgba(0, 255, 255, 0.5);
+    }
 
-        #footer {
-            text-align: center;
-            color: #88a5d6;
-            font-size: 0.9rem;
-            padding: 40px 0 20px;
-            margin-top: 60px;
-        }
+    #footer {
+      text-align: center;
+      color: #88a5d6;
+      font-size: 0.9rem;
+      padding: 40px 0 20px;
+      margin-top: 60px;
+    }
 
-        @media (max-width: 768px) {
-            #header h2 {
-                font-size: 2rem;
-            }
-        }
-    </style>
+    @media (max-width: 768px) {
+      #header h2 {
+        font-size: 2rem;
+      }
+    }
+
+    /* 音乐控制按钮 */
+    #music-toggle {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: rgba(0,255,255,0.1);
+      border: 1px solid #0ff;
+      color: #0ff;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 1000;
+      backdrop-filter: blur(6px);
+      transition: all 0.3s ease;
+    }
+
+    #music-toggle:hover {
+      background: #0ff;
+      color: #000;
+    }
+  </style>
 </head>
 <body>
-<div id="tsparticles"></div>
-<div id="page">
+  <!-- 粒子背景 -->
+  <div id="tsparticles"></div>
+
+  <!-- 背景音乐 -->
+  <audio id="bg-music" autoplay loop muted>
+    <source src="https://cdn.pixabay.com/audio/2023/06/15/audio_e1c24466c2.mp3" type="audio/mp3">
+  </audio>
+  <div id="music-toggle" title="播放/暂停音乐"><i class="fas fa-music"></i></div>
+
+  <div id="page">
     <div id="header">
-        <h2>亿万外汇</h2>
-        <div class="tagline">尖端科技交易平台 · 全球市场无缝接入</div>
+      <h2>亿万外汇</h2>
+      <div class="tagline">尖端科技交易平台 · 全球市场无缝接入</div>
     </div>
+
     <div class="grid-container">
-        <div class="card">
-            <div class="card-content">
-                <div class="card-icon"><img src="./images/heji/sjtv.png" alt="CXM外汇"></div>
-                <div class="card-title">CXM外汇账户</div>
-                <p class="card-desc">新一代智能交易入口，低延迟执行，机构级流动性接入</p>
-                <a href="https://account.cxmgroupchina.com/zh/links/go/" target="_blank" class="cta-btn">专业版开户</a>
-            </div>
+      <!-- 四个卡片 -->
+      <div class="card">
+        <div class="card-content">
+          <div class="card-icon"><img src="./images/heji/sjtv.png" alt="CXM外汇"></div>
+          <div class="card-title">CXM外汇账户</div>
+          <p class="card-desc">新一代智能交易入口，低延迟执行，机构级流动性接入</p>
+          <a href="https://account.cxmgroupchina.com/zh/links/go/" target="_blank" class="cta-btn">专业版开户</a>
         </div>
-        <div class="card">
-            <div class="card-content">
-                <div class="card-icon"><img src="./images/heji/sjtv.png" alt="CXM外汇"></div>
-                <div class="card-title">CXM交易终端</div>
-                <p class="card-desc">多资产交易平台，AI风控系统，实时市场深度分析</p>
-                <a href="https://broker.cxmglobaltrading.com/zh/links/go/59" target="_blank" class="cta-btn">旗舰版开户</a>
-            </div>
+      </div>
+
+      <div class="card">
+        <div class="card-content">
+          <div class="card-icon"><img src="./images/heji/sjtv.png" alt="CXM外汇"></div>
+          <div class="card-title">CXM交易终端</div>
+          <p class="card-desc">多资产交易平台，AI风控系统，实时市场深度分析</p>
+          <a href="https://broker.cxmglobaltrading.com/zh/links/go/59" target="_blank" class="cta-btn">旗舰版开户</a>
         </div>
-        <div class="card">
-            <div class="card-content">
-                <div class="card-icon"><img src="./images/heji/sjtv.png" alt="CXM外汇"></div>
-                <div class="card-title">CXM算法交易</div>
-                <p class="card-desc">量化策略云服务，高频交易API，区块链结算通道</p>
-                <a href="https://cxmpath.xyz/zh/links/go/59" target="_blank" class="cta-btn">机构版开户</a>
-            </div>
+      </div>
+
+      <div class="card">
+        <div class="card-content">
+          <div class="card-icon"><img src="./images/heji/sjtv.png" alt="CXM外汇"></div>
+          <div class="card-title">CXM算法交易</div>
+          <p class="card-desc">量化策略云服务，高频交易API，区块链结算通道</p>
+          <a href="https://cxmpath.xyz/zh/links/go/59" target="_blank" class="cta-btn">机构版开户</a>
         </div>
-        <div class="card">
-            <div class="card-content">
-                <div class="card-icon"><img src="./images/heji/sjtv.png" alt="CXM外汇"></div>
-                <div class="card-title">CXM精英账户</div>
-                <p class="card-desc">VIP专属服务，深度流动性池，智能对冲解决方案</p>
-                <a href="https://account.cxm-trader.com/zh/links/go/" target="_blank" class="cta-btn">尊享版开户</a>
-            </div>
+      </div>
+
+      <div class="card">
+        <div class="card-content">
+          <div class="card-icon"><img src="./images/heji/sjtv.png" alt="CXM外汇"></div>
+          <div class="card-title">CXM精英账户</div>
+          <p class="card-desc">VIP专属服务，深度流动性池，智能对冲解决方案</p>
+          <a href="https://account.cxm-trader.com/zh/links/go/" target="_blank" class="cta-btn">尊享版开户</a>
         </div>
+      </div>
     </div>
+
     <div id="footer">
-        <p>亿万金融科技 出品</p>
-        <p>© 2025 区块链安全技术驱动 | 金融牌照号: FX-2025-88888</p>
+      <p>亿万金融科技 出品</p>
+      <p>© 2025 区块链安全技术驱动 | 金融牌照号: FX-2025-88888</p>
     </div>
-</div>
-<script>
+  </div>
+
+  <script>
+    // 粒子背景配置
     tsParticles.load("tsparticles", {
-        fullScreen: { enable: true, zIndex: -1 },
-        particles: {
-            number: { value: 80 },
-            color: { value: "#0ff" },
-            shape: { type: "circle" },
-            opacity: { value: 0.3 },
-            size: { value: { min: 1, max: 3 } },
-            move: { enable: true, speed: 1, direction: "none" }
-        },
-        background: { color: "#0c1021" }
+      fullScreen: { enable: true, zIndex: -1 },
+      particles: {
+        number: { value: 80 },
+        color: { value: "#0ff" },
+        shape: { type: "circle" },
+        opacity: { value: 0.3 },
+        size: { value: { min: 1, max: 3 } },
+        move: { enable: true, speed: 1 }
+      },
+      background: { color: "#0c1021" }
     });
-</script>
+
+    // 背景音乐控制
+    const music = document.getElementById("bg-music");
+    const toggle = document.getElementById("music-toggle");
+    let isMuted = true;
+
+    toggle.addEventListener("click", () => {
+      isMuted = !isMuted;
+      music.muted = isMuted;
+      toggle.innerHTML = isMuted
+        ? '<i class="fas fa-music"></i>'
+        : '<i class="fas fa-volume-up"></i>';
+    });
+
+    // 自动播放尝试（Chrome 需要交互或静音）
+    window.addEventListener("DOMContentLoaded", () => {
+      music.play().catch(() => {
+        music.muted = true;
+      });
+    });
+  </script>
 </body>
 </html>
